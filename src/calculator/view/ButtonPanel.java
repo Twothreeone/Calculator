@@ -3,29 +3,37 @@ package calculator.view;
 import calculator.controller.CalculatorController;
 import javax.swing.*;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.GridLayout;
+
+import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
+import javax.swing.border.LineBorder;
 
 public class ButtonPanel extends JPanel
 {
 	private CalculatorController appController;
 	private GridLayout numberLayout;
-	private JButton zero;
-	private JButton one;
-	private JButton two;
-	private JButton three;
-	private JButton four;
-	private JButton five;
-	private JButton six;
-	private JButton seven;
-	private JButton eight;
-	private JButton nine;
-	private JButton point;
+	private CalculatorButton zero;
+	private CalculatorButton one;
+	private CalculatorButton two;
+	private CalculatorButton three;
+	private CalculatorButton four;
+	private CalculatorButton five;
+	private CalculatorButton six;
+	private CalculatorButton seven;
+	private CalculatorButton eight;
+	private CalculatorButton nine;
+	private CalculatorButton point;
+	private CalculatorButton multiply;
+	private CalculatorButton divide;
+	private CalculatorButton add;
+	private CalculatorButton subtract;
 	private JButton equals;
-	private JButton multiply;
-	private JButton divide;
-	private JButton add;
-	private JButton subtract;
+	private JButton ans;
+	private JButton clear;
+	private JButton backspace;
+	private JButton negative;
 
 	/**
 	 * Constructor for the ButtonPanel, creates the Buttons and calls helper methods.
@@ -37,23 +45,27 @@ public class ButtonPanel extends JPanel
 	{
 		super();
 		this.appController = appController;
-		numberLayout = new GridLayout(4, 4, 10, 10);
-		zero = new JButton();
-		one = new JButton();
-		two = new JButton();
-		three = new JButton();
-		four = new JButton();
-		five = new JButton();
-		six = new JButton();
-		seven = new JButton();
-		eight = new JButton();
-		nine = new JButton();
-		point = new JButton();
+		numberLayout = new GridLayout(5, 4, 10, 10);
+		zero = new CalculatorButton(appController, "0", true);
+		one = new CalculatorButton(appController, "1", true);
+		two = new CalculatorButton(appController, "2", true);
+		three = new CalculatorButton(appController, "3", true);
+		four = new CalculatorButton(appController, "4", true);
+		five = new CalculatorButton(appController, "5", true);
+		six = new CalculatorButton(appController, "6", true);
+		seven = new CalculatorButton(appController, "7", true);
+		eight = new CalculatorButton(appController, "8", true);
+		nine = new CalculatorButton(appController, "9", true);
+		point = new CalculatorButton(appController, ".", true);
+		multiply = new CalculatorButton(appController, "x", false);
+		divide = new CalculatorButton(appController, "/", false);
+		add = new CalculatorButton(appController, "+", false);
+		subtract = new CalculatorButton(appController, "-", false);
 		equals = new JButton();
-		multiply = new JButton();
-		divide = new JButton();
-		add = new JButton();
-		subtract = new JButton();
+		ans = new JButton();
+		clear = new JButton();
+		backspace = new JButton();
+		negative = new JButton();
 		setupPanel();
 		setupButtons();
 	}
@@ -66,44 +78,59 @@ public class ButtonPanel extends JPanel
 		setLayout(numberLayout);
 		setBorder(new EtchedBorder(EtchedBorder.RAISED, Color.GRAY, Color.DARK_GRAY));
 		setBackground(Color.LIGHT_GRAY);
+		add(ans);
+		add(clear);
+		add(backspace);
+		add(divide);
 		add(seven);
 		add(eight);
 		add(nine);
-		add(divide);
+		add(multiply);
 		add(four);
 		add(five);
 		add(six);
-		add(multiply);
+		add(subtract);
 		add(one);
 		add(two);
 		add(three);
-		add(subtract);
+		add(add);
+		add(negative);
 		add(zero);
 		add(point);
 		add(equals);
-		add(add);
 	}
-
-	/**
-	 * Helper method for the Constructor used to set parameters for the buttons.
-	 */
+	
 	private void setupButtons()
 	{
-		zero.setText("0");
-		one.setText("1");
-		two.setText("2");
-		three.setText("3");
-		four.setText("4");
-		five.setText("5");
-		six.setText("6");
-		seven.setText("7");
-		eight.setText("8");
-		nine.setText("9");
-		point.setText(".");
 		equals.setText("=");
-		multiply.setText("x");
-		divide.setText("/");
-		add.setText("+");
-		subtract.setText("-");
+		equals.setBackground(Color.RED);
+		equals.setForeground(Color.WHITE);
+		equals.setOpaque(true);
+		equals.setFont(new Font("Lucida Grande", Font.PLAIN, 50));
+		equals.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+		ans.setText("Ans");
+		ans.setBackground(Color.GREEN);
+		ans.setForeground(Color.WHITE);
+		ans.setOpaque(true);
+		ans.setFont(new Font("Lucida Grande", Font.PLAIN, 35));
+		ans.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+		clear.setText("C");
+		clear.setBackground(Color.GREEN);
+		clear.setForeground(Color.WHITE);
+		clear.setOpaque(true);
+		clear.setFont(new Font("Lucida Grande", Font.PLAIN, 50));
+		clear.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+		backspace.setText("<--");
+		backspace.setBackground(Color.GREEN);
+		backspace.setForeground(Color.WHITE);
+		backspace.setOpaque(true);
+		backspace.setFont(new Font("Lucida Grande", Font.PLAIN, 35));
+		backspace.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+		negative.setText("+/-");
+		negative.setBackground(Color.GRAY);
+		negative.setForeground(Color.WHITE);
+		negative.setOpaque(true);
+		negative.setFont(new Font("Lucida Grande", Font.PLAIN, 35));
+		negative.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
 	}
 }

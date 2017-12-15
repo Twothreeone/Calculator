@@ -29,7 +29,7 @@ public class CalculatorFrame extends JFrame
 	private void setupFrame()
 	{
 		this.setContentPane(appPanel);
-		this.setSize(410, 520);
+		this.setSize(410, 620);
 		this.setTitle("Calculator");
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setLocation(100, 100);

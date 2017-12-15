@@ -50,7 +50,7 @@ public class CalculatorPanel extends JPanel
 		appLayout.putConstraint(SpringLayout.WEST, displayPanel, 5, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.EAST, displayPanel, -5, SpringLayout.EAST, this);
 		appLayout.putConstraint(SpringLayout.NORTH, displayPanel, 5, SpringLayout.NORTH, this);
-		appLayout.putConstraint(SpringLayout.SOUTH, displayPanel, -415, SpringLayout.SOUTH, this);
+		appLayout.putConstraint(SpringLayout.SOUTH, displayPanel, -515, SpringLayout.SOUTH, this);
 		appLayout.putConstraint(SpringLayout.NORTH, numberPanel, 10, SpringLayout.SOUTH, displayPanel);
 		appLayout.putConstraint(SpringLayout.WEST, numberPanel, 5, SpringLayout.WEST, this);
 		appLayout.putConstraint(SpringLayout.SOUTH, numberPanel, -5, SpringLayout.SOUTH, this);
