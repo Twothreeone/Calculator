@@ -26,7 +26,13 @@ public class ButtonPanel extends JPanel
 	private JButton divide;
 	private JButton add;
 	private JButton subtract;
-	
+
+	/**
+	 * Constructor for the ButtonPanel, creates the Buttons and calls helper methods.
+	 * 
+	 * @param appController
+	 *            the CalculatorController being used to run the project
+	 */
 	public ButtonPanel(CalculatorController appController)
 	{
 		super();
@@ -51,7 +57,10 @@ public class ButtonPanel extends JPanel
 		setupPanel();
 		setupButtons();
 	}
-	
+
+	/**
+	 * Helper method for the Constructor used to set parameters and add components to the Panel.
+	 */
 	private void setupPanel()
 	{
 		setLayout(numberLayout);
@@ -74,7 +83,10 @@ public class ButtonPanel extends JPanel
 		add(equals);
 		add(add);
 	}
-	
+
+	/**
+	 * Helper method for the Constructor used to set parameters for the buttons.
+	 */
 	private void setupButtons()
 	{
 		zero.setText("0");

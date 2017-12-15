@@ -12,7 +12,13 @@ public class CalculatorPanel extends JPanel
 	private SpringLayout appLayout;
 	private DisplayPanel displayPanel;
 	private ButtonPanel numberPanel;
-	
+
+	/**
+	 * Constructor for the main Panel, creates the sub Panels and calls helper methods.
+	 * 
+	 * @param appController
+	 *            the CalculatorController being used to run the project
+	 */
 	public CalculatorPanel(CalculatorController appController)
 	{
 		super();
@@ -23,7 +29,10 @@ public class CalculatorPanel extends JPanel
 		setupPanel();
 		setupLayout();
 	}
-	
+
+	/**
+	 * Helper method for the Constructor used to set parameters and add components to the Panel.
+	 */
 	private void setupPanel()
 	{
 		setLayout(appLayout);
@@ -32,7 +41,10 @@ public class CalculatorPanel extends JPanel
 		setBackground(Color.GRAY);
 		setBorder(new LineBorder(Color.LIGHT_GRAY, 3, true));
 	}
-	
+
+	/**
+	 * Helper method for the Constructor used to set the layout of the components.
+	 */
 	private void setupLayout()
 	{
 		appLayout.putConstraint(SpringLayout.WEST, displayPanel, 5, SpringLayout.WEST, this);

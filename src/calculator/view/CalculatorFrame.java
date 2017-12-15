@@ -10,7 +10,7 @@ public class CalculatorFrame extends JFrame
 	private CalculatorPanel appPanel;
 
 	/**
-	 * Constructor for the frame
+	 * Constructor for the Frame, creates the CalculatorPanel and calls helper methods.
 	 * 
 	 * @param appController
 	 *            the CalculatorController being used to run the project
@@ -24,7 +24,7 @@ public class CalculatorFrame extends JFrame
 	}
 
 	/**
-	 * Helper method to the constructor used to set parameters for the frame
+	 * Helper method for the constructor used to set parameters for the frame.
 	 */
 	private void setupFrame()
 	{
