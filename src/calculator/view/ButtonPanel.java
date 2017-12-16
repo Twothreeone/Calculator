@@ -5,7 +5,6 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
-
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
@@ -99,7 +98,7 @@ public class ButtonPanel extends JPanel
 		add(point);
 		add(equals);
 	}
-	
+
 	private void setupButtons()
 	{
 		equals.setText("=");
@@ -109,19 +108,19 @@ public class ButtonPanel extends JPanel
 		equals.setFont(new Font("Lucida Grande", Font.PLAIN, 50));
 		equals.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
 		ans.setText("Ans");
-		ans.setBackground(Color.GREEN);
+		ans.setBackground(new Color(0, 170, 100));
 		ans.setForeground(Color.WHITE);
 		ans.setOpaque(true);
 		ans.setFont(new Font("Lucida Grande", Font.PLAIN, 35));
 		ans.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
 		clear.setText("C");
-		clear.setBackground(Color.GREEN);
+		clear.setBackground(new Color(0, 170, 100));
 		clear.setForeground(Color.WHITE);
 		clear.setOpaque(true);
 		clear.setFont(new Font("Lucida Grande", Font.PLAIN, 50));
 		clear.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
 		backspace.setText("<--");
-		backspace.setBackground(Color.GREEN);
+		backspace.setBackground(new Color(0, 170, 100));
 		backspace.setForeground(Color.WHITE);
 		backspace.setOpaque(true);
 		backspace.setFont(new Font("Lucida Grande", Font.PLAIN, 35));

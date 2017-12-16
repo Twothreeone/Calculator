@@ -10,13 +10,13 @@ import javax.swing.border.CompoundBorder;
 public class CalculatorButton extends JButton
 {
 	private CalculatorController appController;
-	
+
 	public CalculatorButton(CalculatorController appController, String text, boolean isNumber)
 	{
 		super();
 		this.appController = appController;
 		setText(text);
-		if(isNumber)
+		if (isNumber)
 		{
 			setBackground(Color.GRAY);
 		}
@@ -30,9 +30,9 @@ public class CalculatorButton extends JButton
 		setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
 		setupListeners();
 	}
-	
+
 	private void setupListeners()
 	{
-		
+
 	}
 }
