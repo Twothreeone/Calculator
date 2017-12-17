@@ -13,4 +13,9 @@ public class CalculatorController
 	{
 		appFrame = new CalculatorFrame(this);
 	}
+	
+	public void appendText()
+	{
+		
+	}
 }

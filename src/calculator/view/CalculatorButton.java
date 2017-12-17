@@ -6,6 +6,8 @@ import java.awt.Color;
 import calculator.controller.CalculatorController;
 import java.awt.Font;
 import javax.swing.border.CompoundBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class CalculatorButton extends JButton
 {
@@ -33,6 +35,12 @@ public class CalculatorButton extends JButton
 
 	private void setupListeners()
 	{
-
+		addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				appController.appendText();
+			}
+		});
 	}
 }
