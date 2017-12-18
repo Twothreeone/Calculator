@@ -39,22 +39,22 @@ public class CalculatorButton extends JButton
 			{
 				appController.appendText(getText());
 			}
-			
+
 			public void mousePressed(MouseEvent onClick)
 			{
 				setBackground(background.darker());
 			}
-			
+
 			public void mouseReleased(MouseEvent offClick)
 			{
 				setBackground(background);
 			}
-			
+
 			public void mouseEntered(MouseEvent enter)
 			{
 				setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
 			}
-			
+
 			public void mouseExited(MouseEvent exit)
 			{
 				setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));

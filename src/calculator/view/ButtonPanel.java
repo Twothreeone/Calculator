@@ -130,7 +130,7 @@ public class ButtonPanel extends JPanel
 		negative.setFont(new Font("Lucida Grande", Font.PLAIN, 35));
 		negative.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
 	}
-	
+
 	private void setupListeners()
 	{
 		equals.addMouseListener(new MouseAdapter()
@@ -139,22 +139,22 @@ public class ButtonPanel extends JPanel
 			{
 				appController.calculate();
 			}
-			
+
 			public void mousePressed(MouseEvent onClick)
 			{
 				equals.setBackground(Color.RED.darker());
 			}
-			
+
 			public void mouseReleased(MouseEvent offClick)
 			{
 				equals.setBackground(Color.RED);
 			}
-			
+
 			public void mouseEntered(MouseEvent enter)
 			{
 				equals.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
 			}
-			
+
 			public void mouseExited(MouseEvent exit)
 			{
 				equals.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
@@ -166,22 +166,22 @@ public class ButtonPanel extends JPanel
 			{
 				appController.clearText();
 			}
-			
+
 			public void mousePressed(MouseEvent onClick)
 			{
 				clear.setBackground(new Color(0, 170, 100).darker());
 			}
-			
+
 			public void mouseReleased(MouseEvent offClick)
 			{
 				clear.setBackground(new Color(0, 170, 100));
 			}
-			
+
 			public void mouseEntered(MouseEvent enter)
 			{
 				clear.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
 			}
-			
+
 			public void mouseExited(MouseEvent exit)
 			{
 				clear.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
@@ -193,22 +193,22 @@ public class ButtonPanel extends JPanel
 			{
 				appController.backspace();
 			}
-			
+
 			public void mousePressed(MouseEvent onClick)
 			{
 				backspace.setBackground(new Color(0, 170, 100).darker());
 			}
-			
+
 			public void mouseReleased(MouseEvent offClick)
 			{
 				backspace.setBackground(new Color(0, 170, 100));
 			}
-			
+
 			public void mouseEntered(MouseEvent enter)
 			{
 				backspace.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
 			}
-			
+
 			public void mouseExited(MouseEvent exit)
 			{
 				backspace.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
@@ -220,22 +220,22 @@ public class ButtonPanel extends JPanel
 			{
 				appController.changeSign();
 			}
-			
+
 			public void mousePressed(MouseEvent onClick)
 			{
 				negative.setBackground(Color.GRAY.darker());
 			}
-			
+
 			public void mouseReleased(MouseEvent offClick)
 			{
 				negative.setBackground(Color.GRAY);
 			}
-			
+
 			public void mouseEntered(MouseEvent enter)
 			{
 				negative.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
 			}
-			
+
 			public void mouseExited(MouseEvent exit)
 			{
 				negative.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));

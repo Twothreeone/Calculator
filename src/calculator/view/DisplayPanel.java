@@ -83,19 +83,19 @@ public class DisplayPanel extends JPanel
 			displayText.append(text);
 		}
 	}
-	
+
 	public void answer(String answer)
 	{
 		displayText.setText(startText + answer);
 		isAnswer = true;
 	}
-	
+
 	public void clearText()
 	{
 		displayText.setText(startText + '0');
 		isAnswer = true;
 	}
-	
+
 	public void backspace()
 	{
 		String text = displayText.getText();
@@ -117,7 +117,7 @@ public class DisplayPanel extends JPanel
 			clearText();
 		}
 	}
-	
+
 	public void changeSign()
 	{
 		if (isAnswer)
@@ -133,7 +133,7 @@ public class DisplayPanel extends JPanel
 			{
 				displayText.setText(text.substring(0, lastSpace + 1) + text.substring(lastSpace + 2, length));
 			}
-			else 
+			else
 			{
 				displayText.setText(text.substring(0, lastSpace + 1) + '-' + text.substring(lastSpace + 1, length));
 			}
@@ -146,7 +146,7 @@ public class DisplayPanel extends JPanel
 		if (displayText.getText().equals(startText))
 		{
 			clearText();
-			
+
 		}
 	}
 
