@@ -5,6 +5,9 @@ import javax.swing.*;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+
 import javax.swing.border.CompoundBorder;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.LineBorder;
@@ -28,8 +31,8 @@ public class ButtonPanel extends JPanel
 	private CalculatorButton divide;
 	private CalculatorButton add;
 	private CalculatorButton subtract;
+	private CalculatorButton ans;
 	private JButton equals;
-	private JButton ans;
 	private JButton clear;
 	private JButton backspace;
 	private JButton negative;
@@ -45,28 +48,29 @@ public class ButtonPanel extends JPanel
 		super();
 		this.appController = appController;
 		numberLayout = new GridLayout(5, 4, 10, 10);
-		zero = new CalculatorButton(appController, "0", true);
-		one = new CalculatorButton(appController, "1", true);
-		two = new CalculatorButton(appController, "2", true);
-		three = new CalculatorButton(appController, "3", true);
-		four = new CalculatorButton(appController, "4", true);
-		five = new CalculatorButton(appController, "5", true);
-		six = new CalculatorButton(appController, "6", true);
-		seven = new CalculatorButton(appController, "7", true);
-		eight = new CalculatorButton(appController, "8", true);
-		nine = new CalculatorButton(appController, "9", true);
-		point = new CalculatorButton(appController, ".", true);
-		multiply = new CalculatorButton(appController, "x", false);
-		divide = new CalculatorButton(appController, "/", false);
-		add = new CalculatorButton(appController, "+", false);
-		subtract = new CalculatorButton(appController, "-", false);
+		zero = new CalculatorButton(appController, "0", Color.GRAY);
+		one = new CalculatorButton(appController, "1", Color.GRAY);
+		two = new CalculatorButton(appController, "2", Color.GRAY);
+		three = new CalculatorButton(appController, "3", Color.GRAY);
+		four = new CalculatorButton(appController, "4", Color.GRAY);
+		five = new CalculatorButton(appController, "5", Color.GRAY);
+		six = new CalculatorButton(appController, "6", Color.GRAY);
+		seven = new CalculatorButton(appController, "7", Color.GRAY);
+		eight = new CalculatorButton(appController, "8", Color.GRAY);
+		nine = new CalculatorButton(appController, "9", Color.GRAY);
+		point = new CalculatorButton(appController, ".", Color.GRAY);
+		multiply = new CalculatorButton(appController, "x", Color.BLUE);
+		divide = new CalculatorButton(appController, "/", Color.BLUE);
+		add = new CalculatorButton(appController, "+", Color.BLUE);
+		subtract = new CalculatorButton(appController, "-", Color.BLUE);
+		ans = new CalculatorButton(appController, "Ans", new Color(0, 170, 100));
 		equals = new JButton();
-		ans = new JButton();
 		clear = new JButton();
 		backspace = new JButton();
 		negative = new JButton();
 		setupPanel();
 		setupButtons();
+		setupListeners();
 	}
 
 	/**
@@ -107,12 +111,6 @@ public class ButtonPanel extends JPanel
 		equals.setOpaque(true);
 		equals.setFont(new Font("Lucida Grande", Font.PLAIN, 50));
 		equals.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
-		ans.setText("Ans");
-		ans.setBackground(new Color(0, 170, 100));
-		ans.setForeground(Color.WHITE);
-		ans.setOpaque(true);
-		ans.setFont(new Font("Lucida Grande", Font.PLAIN, 35));
-		ans.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
 		clear.setText("C");
 		clear.setBackground(new Color(0, 170, 100));
 		clear.setForeground(Color.WHITE);
@@ -131,5 +129,117 @@ public class ButtonPanel extends JPanel
 		negative.setOpaque(true);
 		negative.setFont(new Font("Lucida Grande", Font.PLAIN, 35));
 		negative.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+	}
+	
+	private void setupListeners()
+	{
+		equals.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent click)
+			{
+				appController.calculate();
+			}
+			
+			public void mousePressed(MouseEvent onClick)
+			{
+				equals.setBackground(Color.RED.darker());
+			}
+			
+			public void mouseReleased(MouseEvent offClick)
+			{
+				equals.setBackground(Color.RED);
+			}
+			
+			public void mouseEntered(MouseEvent enter)
+			{
+				equals.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
+			}
+			
+			public void mouseExited(MouseEvent exit)
+			{
+				equals.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+			}
+		});
+		clear.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent click)
+			{
+				appController.clearText();
+			}
+			
+			public void mousePressed(MouseEvent onClick)
+			{
+				clear.setBackground(new Color(0, 170, 100).darker());
+			}
+			
+			public void mouseReleased(MouseEvent offClick)
+			{
+				clear.setBackground(new Color(0, 170, 100));
+			}
+			
+			public void mouseEntered(MouseEvent enter)
+			{
+				clear.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
+			}
+			
+			public void mouseExited(MouseEvent exit)
+			{
+				clear.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+			}
+		});
+		backspace.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent click)
+			{
+				appController.backspace();
+			}
+			
+			public void mousePressed(MouseEvent onClick)
+			{
+				backspace.setBackground(new Color(0, 170, 100).darker());
+			}
+			
+			public void mouseReleased(MouseEvent offClick)
+			{
+				backspace.setBackground(new Color(0, 170, 100));
+			}
+			
+			public void mouseEntered(MouseEvent enter)
+			{
+				backspace.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
+			}
+			
+			public void mouseExited(MouseEvent exit)
+			{
+				backspace.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+			}
+		});
+		negative.addMouseListener(new MouseAdapter()
+		{
+			public void mouseClicked(MouseEvent click)
+			{
+				appController.changeSign();
+			}
+			
+			public void mousePressed(MouseEvent onClick)
+			{
+				negative.setBackground(Color.GRAY.darker());
+			}
+			
+			public void mouseReleased(MouseEvent offClick)
+			{
+				negative.setBackground(Color.GRAY);
+			}
+			
+			public void mouseEntered(MouseEvent enter)
+			{
+				negative.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.WHITE, 3)));
+			}
+			
+			public void mouseExited(MouseEvent exit)
+			{
+				negative.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
+			}
+		});
 	}
 }

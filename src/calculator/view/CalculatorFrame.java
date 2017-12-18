@@ -36,4 +36,12 @@ public class CalculatorFrame extends JFrame
 		this.setResizable(false);
 		this.setVisible(true);
 	}
+
+	/**
+	 * @return the appPanel
+	 */
+	public CalculatorPanel getAppPanel()
+	{
+		return appPanel;
+	}
 }
