@@ -53,7 +53,6 @@ public class DisplayPanel extends JPanel
 		displayText.setFont(new Font("Lucida Grande", Font.PLAIN, 57));
 		displayText.setEditable(false);
 		displayText.setText(startText + '0');
-		System.out.println(displayText.getText().length());
 	}
 
 	/**

@@ -7,7 +7,7 @@ import javax.swing.text.*;
 
 /**
  * The SmartScroller will attempt to keep the viewport positioned based on the users interaction
- * with the scrollbar. The normal behaviour is to keep the viewport positioned to see new data as it
+ * with the scroll bar. The normal behavior is to keep the viewport positioned to see new data as it
  * is dynamically added.
  *
  * Assuming vertical scrolling and data is added to the bottom:
@@ -22,7 +22,7 @@ import javax.swing.text.*;
  * the viewport is not at the top and new data is added, then adjust the viewport to the relative
  * position it was at before the data was added
  *
- * Similiar logic would apply for horizontal scrolling.
+ * Similar logic would apply for horizontal scrolling.
  */
 public class SmartScroller implements AdjustmentListener
 {
@@ -133,7 +133,7 @@ public class SmartScroller implements AdjustmentListener
 		boolean valueChanged = previousValue != value;
 		boolean maximumChanged = previousMaximum != maximum;
 
-		// Check if the user has manually repositioned the scrollbar
+		// Check if the user has manually repositioned the scroll bar
 
 		if (valueChanged && !maximumChanged)
 		{
