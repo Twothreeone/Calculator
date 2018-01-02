@@ -5,6 +5,13 @@ import java.util.ArrayList;
 
 public class CalculatorMath
 {	
+	String previousAnswer;
+	
+	public CalculatorMath()
+	{
+		previousAnswer = "0";
+	}
+	
 	public String calculate(String equation)
 	{
 		List<String> terms = createList(equation);
@@ -12,7 +19,7 @@ public class CalculatorMath
 		{
 			return "Syntax Error";
 		}
-		return "42";
+		return doMath(terms);
 	}
 	
 	private List<String> createList(String equation)
@@ -63,5 +70,50 @@ public class CalculatorMath
 			return false;
 		}
 		return true;
+	}
+	
+	private String doMath(List<String> terms)
+	{
+		String answer = "";
+		for (int i = 0; i < terms.size(); i++)
+		{
+			if (terms.get(i).equals("Ans"))
+			{
+				terms.set(i, previousAnswer);
+			}
+			if (terms.get(i).equals("x"))
+			{
+				terms.set(i - 1, Double.parseDouble(terms.get(i - 1)) * Double.parseDouble(terms.get(i + 1)) + "");
+				terms.remove(i);
+				terms.remove(i);
+				i--;
+			}
+			else if (terms.get(i).equals("/"))
+			{
+				terms.set(i - 1, Double.parseDouble(terms.get(i - 1)) / Double.parseDouble(terms.get(i + 1)) + "");
+				terms.remove(i);
+				terms.remove(i);
+				i--;
+			}
+		}
+		for (int i = 0; i < terms.size(); i++)
+		{
+			if (terms.get(i).equals("+"))
+			{
+				terms.set(i - 1, Double.parseDouble(terms.get(i - 1)) + Double.parseDouble(terms.get(i + 1)) + "");
+				terms.remove(i);
+				terms.remove(i);
+				i--;
+			}
+			else if (terms.get(i).equals("-"))
+			{
+				terms.set(i - 1, Double.parseDouble(terms.get(i - 1)) - Double.parseDouble(terms.get(i + 1)) + "");
+				terms.remove(i);
+				terms.remove(i);
+				i--;
+			}
+		}
+		previousAnswer = answer;
+		return terms.toString();
 	}
 }
