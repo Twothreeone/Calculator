@@ -85,7 +85,21 @@ public class DisplayPanel extends JPanel
 
 	public void answer(String answer)
 	{
-		displayText.setText(startText + answer);
+		if (answer.length() > 11)
+		{
+			if (answer.contains("E"))
+			{
+				displayText.setText(startText + answer.substring(0, 11 - (answer.length() - answer.indexOf("E"))) + answer.substring(answer.indexOf("E"), answer.length()));
+			}
+			else
+			{
+				displayText.setText(startText + answer.substring(0, 11));
+			}
+		}
+		else
+		{
+			displayText.setText(startText + answer);
+		}
 		isAnswer = true;
 	}
 

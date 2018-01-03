@@ -5,11 +5,11 @@ import java.util.ArrayList;
 
 public class CalculatorMath
 {	
-	String previousAnswer;
+	String answer;
 	
 	public CalculatorMath()
 	{
-		previousAnswer = "0";
+		answer = "0";
 	}
 	
 	public String calculate(String equation)
@@ -74,12 +74,11 @@ public class CalculatorMath
 	
 	private String doMath(List<String> terms)
 	{
-		String answer = "";
 		for (int i = 0; i < terms.size(); i++)
 		{
 			if (terms.get(i).equals("Ans"))
 			{
-				terms.set(i, previousAnswer);
+				terms.set(i, answer);
 			}
 			if (terms.get(i).equals("x"))
 			{
@@ -113,7 +112,7 @@ public class CalculatorMath
 				i--;
 			}
 		}
-		previousAnswer = answer;
-		return terms.toString();
+		answer = Double.parseDouble(terms.get(0)) + "";
+		return answer;
 	}
 }
