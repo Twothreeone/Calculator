@@ -11,7 +11,8 @@ import java.util.Arrays;
 
 public class DisplayPanel extends JPanel
 {
-	private CalculatorController appController;
+	private SmartScroller smartScroll;
+	private Keyboard keyboard;
 	private JScrollPane displayScroll;
 	private JTextArea displayText;
 	private SpringLayout displayLayout;
@@ -28,10 +29,11 @@ public class DisplayPanel extends JPanel
 	public DisplayPanel(CalculatorController appController)
 	{
 		super();
-		this.appController = appController;
 		displayScroll = new JScrollPane();
 		displayText = new JTextArea();
 		displayLayout = new SpringLayout();
+		smartScroll = new SmartScroller(displayScroll, SmartScroller.HORIZONTAL, SmartScroller.END);
+		keyboard = new Keyboard(this);
 		isAnswer = true;
 		setupPanel();
 		setupLayout();
@@ -48,7 +50,6 @@ public class DisplayPanel extends JPanel
 		displayScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 		displayScroll.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);
 		displayScroll.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.GRAY, Color.DARK_GRAY));
-		SmartScroller smartScroll = new SmartScroller(displayScroll, SmartScroller.HORIZONTAL, SmartScroller.END);
 		displayText.setBackground(new Color(150, 180, 150));
 		displayText.setFont(new Font("Lucida Grande", Font.PLAIN, 57));
 		displayText.setEditable(false);
@@ -65,7 +66,7 @@ public class DisplayPanel extends JPanel
 		displayLayout.putConstraint(SpringLayout.SOUTH, displayScroll, 0, SpringLayout.SOUTH, this);
 		displayLayout.putConstraint(SpringLayout.EAST, displayScroll, 0, SpringLayout.EAST, this);
 	}
-
+	
 	public void appendText(String text)
 	{
 		if (isAnswer)
