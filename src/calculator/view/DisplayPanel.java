@@ -35,7 +35,7 @@ public class DisplayPanel extends JPanel
 		displayText = new JTextArea();
 		displayLayout = new SpringLayout();
 		smartScroll = new SmartScroller(displayScroll, SmartScroller.HORIZONTAL, SmartScroller.END);
-		keyboard = new Keyboard(this);
+		keyboard = new Keyboard(appController, this);
 		isAnswer = true;
 		setupPanel();
 		setupLayout();
