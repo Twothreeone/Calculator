@@ -3,13 +3,16 @@ package calculator.view;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
+import calculator.controller.CalculatorController;
 
 public class Keyboard extends KeyAdapter implements KeyListener
 {
+	CalculatorController appController;
 	DisplayPanel displayPanel;
 	
-	public Keyboard(DisplayPanel displayPanel)
+	public Keyboard(CalculatorController appController, DisplayPanel displayPanel)
 	{
+		this.appController = appController;
 		this.displayPanel = displayPanel;
 	}
 	
@@ -55,6 +58,46 @@ public class Keyboard extends KeyAdapter implements KeyListener
 		if (key == KeyEvent.VK_9)
 		{
 			displayPanel.appendText("9");
+		}
+		if (key == KeyEvent.VK_PERIOD)
+		{
+			displayPanel.appendText(".");
+		}
+		if (key == KeyEvent.VK_A)
+		{
+			displayPanel.appendText("Ans");
+		}
+		if (key == KeyEvent.VK_SLASH)
+		{
+			displayPanel.appendText("/");
+		}
+		if (key == KeyEvent.VK_X)
+		{
+			displayPanel.appendText("x");
+		}
+		if (key == KeyEvent.VK_SUBTRACT)
+		{
+			displayPanel.appendText("-");
+		}
+		if (key == KeyEvent.VK_PLUS)
+		{
+			displayPanel.appendText("+");
+		}
+		if (key == KeyEvent.VK_EQUALS)
+		{
+			appController.calculate();
+		}
+		if (key == KeyEvent.VK_C)
+		{
+			displayPanel.clearText();
+		}
+		if (key == KeyEvent.VK_BACK_SPACE)
+		{
+			displayPanel.backspace();
+		}
+		if (key == KeyEvent.VK_S)
+		{
+			displayPanel.changeSign();
 		}
 	}
 }

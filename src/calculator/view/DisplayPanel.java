@@ -11,6 +11,7 @@ import java.util.Arrays;
 
 public class DisplayPanel extends JPanel
 {
+	private CalculatorController appController;
 	private SmartScroller smartScroll;
 	private Keyboard keyboard;
 	private JScrollPane displayScroll;
@@ -29,6 +30,7 @@ public class DisplayPanel extends JPanel
 	public DisplayPanel(CalculatorController appController)
 	{
 		super();
+		this.appController = appController;
 		displayScroll = new JScrollPane();
 		displayText = new JTextArea();
 		displayLayout = new SpringLayout();
