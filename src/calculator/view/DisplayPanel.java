@@ -1,6 +1,5 @@
 package calculator.view;
 
-import calculator.controller.CalculatorController;
 import javax.swing.*;
 import javax.swing.border.EtchedBorder;
 import java.awt.Color;
@@ -11,9 +10,7 @@ import java.util.Arrays;
 
 public class DisplayPanel extends JPanel
 {
-	private CalculatorController appController;
 	private SmartScroller smartScroll;
-	private Keyboard keyboard;
 	private JScrollPane displayScroll;
 	private JTextArea displayText;
 	private SpringLayout displayLayout;
@@ -27,15 +24,13 @@ public class DisplayPanel extends JPanel
 	 * @param appController
 	 *            the CalculatorController being used to run the project
 	 */
-	public DisplayPanel(CalculatorController appController)
+	public DisplayPanel()
 	{
 		super();
-		this.appController = appController;
 		displayScroll = new JScrollPane();
 		displayText = new JTextArea();
 		displayLayout = new SpringLayout();
 		smartScroll = new SmartScroller(displayScroll, SmartScroller.HORIZONTAL, SmartScroller.END);
-		keyboard = new Keyboard(appController, this);
 		isAnswer = true;
 		setupPanel();
 		setupLayout();

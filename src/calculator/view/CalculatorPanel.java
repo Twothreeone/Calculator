@@ -24,7 +24,7 @@ public class CalculatorPanel extends JPanel
 		super();
 		this.appController = appController;
 		appLayout = new SpringLayout();
-		displayPanel = new DisplayPanel(appController);
+		displayPanel = new DisplayPanel();
 		numberPanel = new ButtonPanel(appController);
 		setupPanel();
 		setupLayout();

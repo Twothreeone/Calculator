@@ -8,6 +8,7 @@ public class CalculatorFrame extends JFrame
 {
 	private CalculatorController appController;
 	private CalculatorPanel appPanel;
+	private Keyboard keyboard;
 
 	/**
 	 * Constructor for the Frame, creates the CalculatorPanel and calls helper methods.
@@ -20,6 +21,7 @@ public class CalculatorFrame extends JFrame
 		super();
 		this.appController = appController;
 		appPanel = new CalculatorPanel(appController);
+		keyboard = new Keyboard(appController, appPanel.getDisplayPanel());
 		setupFrame();
 	}
 
@@ -34,6 +36,8 @@ public class CalculatorFrame extends JFrame
 		this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		this.setLocation(100, 100);
 		this.setResizable(false);
+		this.addKeyListener(keyboard);
+		this.setFocusable(true);
 		this.setVisible(true);
 	}
 

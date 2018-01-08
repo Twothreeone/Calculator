@@ -1,11 +1,10 @@
 package calculator.view;
 
-import java.awt.event.KeyAdapter;
 import java.awt.event.KeyListener;
 import java.awt.event.KeyEvent;
 import calculator.controller.CalculatorController;
 
-public class Keyboard extends KeyAdapter implements KeyListener
+public class Keyboard implements KeyListener
 {
 	CalculatorController appController;
 	DisplayPanel displayPanel;
@@ -18,6 +17,7 @@ public class Keyboard extends KeyAdapter implements KeyListener
 	
 	public void keyPressed(KeyEvent e)
 	{
+		System.out.print("key pressed");
 		int key = e.getKeyCode();
 		if (key == KeyEvent.VK_0)
 		{
@@ -99,5 +99,17 @@ public class Keyboard extends KeyAdapter implements KeyListener
 		{
 			displayPanel.changeSign();
 		}
+	}
+
+	public void keyTyped(KeyEvent e)
+	{
+		System.out.println("key typed");
+		
+	}
+
+	public void keyReleased(KeyEvent e)
+	{
+		System.out.println("key released");
+		
 	}
 }
