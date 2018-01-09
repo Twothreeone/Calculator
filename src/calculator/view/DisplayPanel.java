@@ -95,6 +95,7 @@ public class DisplayPanel extends JPanel
 	 */
 	public void answer(String answer)
 	{
+		answer = answer.substring(0, answer.length() - 2);
 		if (answer.length() > 11)
 		{
 			if (answer.contains("E"))
