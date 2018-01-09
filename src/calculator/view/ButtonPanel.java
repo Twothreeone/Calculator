@@ -103,6 +103,9 @@ public class ButtonPanel extends JPanel
 		add(equals);
 	}
 
+	/**
+	 * Helper method for the Constructor used to set parameters for all of the unique buttons.
+	 */
 	private void setupButtons()
 	{
 		equals.setText("=");
@@ -131,6 +134,9 @@ public class ButtonPanel extends JPanel
 		negative.setBorder(new CompoundBorder(new LineBorder(Color.LIGHT_GRAY, 5), new LineBorder(Color.BLACK, 3)));
 	}
 
+	/**
+	 * Helper method for the Constructor used to add MouseListeners to all of the unique buttons.
+	 */
 	private void setupListeners()
 	{
 		equals.addMouseListener(new MouseAdapter()

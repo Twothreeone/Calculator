@@ -13,6 +13,16 @@ public class CalculatorButton extends JButton
 	private CalculatorController appController;
 	private Color background;
 
+	/**
+	 * Constructor for the CalculatorButton, sets parameters for the button.
+	 * 
+	 * @param appController
+	 *            The app's CalculatorController.
+	 * @param text
+	 *            The button's text.
+	 * @param background
+	 *            The button's background color.
+	 */
 	public CalculatorButton(CalculatorController appController, String text, Color background)
 	{
 		super();
@@ -31,6 +41,9 @@ public class CalculatorButton extends JButton
 		setupListeners();
 	}
 
+	/**
+	 * Helper method for the Constructor to add a MouseListener to the button.
+	 */
 	private void setupListeners()
 	{
 		addMouseListener(new MouseAdapter()

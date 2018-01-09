@@ -7,20 +7,16 @@ import calculator.controller.CalculatorController;
 public class Keyboard implements KeyListener
 {
 	CalculatorController appController;
-	DisplayPanel displayPanel;
 
 	/**
-	 * Constructor to set data members.
+	 * Constructor to set the appController.
 	 * 
 	 * @param appController
 	 *            The app's CalculatorController
-	 * @param displayPanel
-	 *            The app's DisplayPanel
 	 */
-	public Keyboard(CalculatorController appController, DisplayPanel displayPanel)
+	public Keyboard(CalculatorController appController)
 	{
 		this.appController = appController;
-		this.displayPanel = displayPanel;
 	}
 
 	/**
@@ -30,43 +26,43 @@ public class Keyboard implements KeyListener
 	{
 		char key = e.getKeyChar();
 		if (key == '0')
-			displayPanel.appendText("0");
+			appController.appendText("0");
 		if (key == '1')
-			displayPanel.appendText("1");
+			appController.appendText("1");
 		if (key == '2')
-			displayPanel.appendText("2");
+			appController.appendText("2");
 		if (key == '3')
-			displayPanel.appendText("3");
+			appController.appendText("3");
 		if (key == '4')
-			displayPanel.appendText("4");
+			appController.appendText("4");
 		if (key == '5')
-			displayPanel.appendText("5");
+			appController.appendText("5");
 		if (key == '6')
-			displayPanel.appendText("6");
+			appController.appendText("6");
 		if (key == '7')
-			displayPanel.appendText("7");
+			appController.appendText("7");
 		if (key == '8')
-			displayPanel.appendText("8");
+			appController.appendText("8");
 		if (key == '9')
-			displayPanel.appendText("9");
+			appController.appendText("9");
 		if (key == '.')
-			displayPanel.appendText(".");
+			appController.appendText(".");
 		if (key == 'a' || key == 'A')
-			displayPanel.appendText("Ans");
+			appController.appendText("Ans");
 		if (key == '/')
-			displayPanel.appendText("/");
+			appController.appendText("/");
 		if (key == 'x' || key == 'X' || key == '*')
-			displayPanel.appendText("x");
+			appController.appendText("x");
 		if (key == '-')
-			displayPanel.appendText("-");
+			appController.appendText("-");
 		if (key == '+')
-			displayPanel.appendText("+");
+			appController.appendText("+");
 		if (key == '=')
 			appController.calculate();
 		if (key == 'c' || key == 'C')
-			displayPanel.clearText();
+			appController.clearText();
 		if (key == 's' || key == 'S' || key == 'n' || key == 'N' || key == 'p' || key == 'P')
-			displayPanel.changeSign();
+			appController.changeSign();
 	}
 
 	/**
@@ -78,7 +74,7 @@ public class Keyboard implements KeyListener
 		if (key == KeyEvent.VK_ENTER)
 			appController.calculate();
 		if (key == KeyEvent.VK_BACK_SPACE || key == KeyEvent.VK_DELETE)
-			displayPanel.backspace();
+			appController.backspace();
 	}
 
 	/**

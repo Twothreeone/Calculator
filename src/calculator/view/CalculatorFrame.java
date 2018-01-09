@@ -21,7 +21,7 @@ public class CalculatorFrame extends JFrame
 		super();
 		this.appController = appController;
 		appPanel = new CalculatorPanel(appController);
-		keyboard = new Keyboard(appController, appPanel.getDisplayPanel());
+		keyboard = new Keyboard(appController);
 		setupFrame();
 	}
 

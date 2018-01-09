@@ -3,15 +3,25 @@ package calculator.model;
 import java.util.List;
 import java.util.ArrayList;
 
-public class CalculatorMath
-{	
+public class Calculator
+{
 	String answer;
-	
-	public CalculatorMath()
+
+	/**
+	 * Constructor for the Calculator, sets the first answer to 0.
+	 */
+	public Calculator()
 	{
 		answer = "0";
 	}
-	
+
+	/**
+	 * Calls the other methods sequentially to find the answer.
+	 * 
+	 * @param equation
+	 *            The equation from the displayPanel.
+	 * @return The answer to the equation.
+	 */
 	public String calculate(String equation)
 	{
 		List<String> terms = createList(equation);
@@ -21,7 +31,14 @@ public class CalculatorMath
 		}
 		return doMath(terms);
 	}
-	
+
+	/**
+	 * Creates the list by splitting the equation into terms.
+	 * 
+	 * @param equation
+	 *            The equation from the displayPanel.
+	 * @return The list of terms.
+	 */
 	private List<String> createList(String equation)
 	{
 		List<String> terms = new ArrayList<String>();
@@ -32,7 +49,7 @@ public class CalculatorMath
 			if (nextSpace >= 0)
 			{
 				terms.add(equation.substring(i, nextSpace));
-				i = nextSpace;	
+				i = nextSpace;
 			}
 			else
 			{
@@ -42,7 +59,14 @@ public class CalculatorMath
 		}
 		return terms;
 	}
-	
+
+	/**
+	 * Makes sure the given list is valid.
+	 * 
+	 * @param terms
+	 *            The list of terms made by the createList method.
+	 * @return Whether or not the given list is valid.
+	 */
 	private boolean checkList(List<String> terms)
 	{
 		if (terms.size() % 2 == 0)
@@ -51,14 +75,21 @@ public class CalculatorMath
 		}
 		for (int i = 0; i < terms.size(); i += 2)
 		{
-			if(!isDouble(terms.get(i)) && !terms.get(i).equals("Ans"))
+			if (!isDouble(terms.get(i)) && !terms.get(i).equals("Ans"))
 			{
 				return false;
 			}
 		}
 		return true;
 	}
-	
+
+	/**
+	 * Checks if a given String can be parsed as a double.
+	 * 
+	 * @param term
+	 *            The String to be checked.
+	 * @return Whether or not the given String is a double.
+	 */
 	private boolean isDouble(String term)
 	{
 		try
@@ -71,7 +102,14 @@ public class CalculatorMath
 		}
 		return true;
 	}
-	
+
+	/**
+	 * Finds the answer from the checked list of terms.
+	 * 
+	 * @param terms
+	 *            The list of terms made by the createList method and checked by the checkList method.
+	 * @return The answer to the equation.
+	 */
 	private String doMath(List<String> terms)
 	{
 		for (int i = 0; i < terms.size(); i++)

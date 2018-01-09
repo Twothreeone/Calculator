@@ -63,7 +63,13 @@ public class DisplayPanel extends JPanel
 		displayLayout.putConstraint(SpringLayout.SOUTH, displayScroll, 0, SpringLayout.SOUTH, this);
 		displayLayout.putConstraint(SpringLayout.EAST, displayScroll, 0, SpringLayout.EAST, this);
 	}
-	
+
+	/**
+	 * Appends the given text to the display appropriately.
+	 * 
+	 * @param text
+	 *            The text to append.
+	 */
 	public void appendText(String text)
 	{
 		if (isAnswer)
@@ -81,6 +87,12 @@ public class DisplayPanel extends JPanel
 		}
 	}
 
+	/**
+	 * Sets the display's text to the answer properly.
+	 * 
+	 * @param answer
+	 *            The answer to set.
+	 */
 	public void answer(String answer)
 	{
 		if (answer.length() > 11)
@@ -101,12 +113,18 @@ public class DisplayPanel extends JPanel
 		isAnswer = true;
 	}
 
+	/**
+	 * Resets the display's text.
+	 */
 	public void clearText()
 	{
 		displayText.setText(startText + '0');
 		isAnswer = true;
 	}
 
+	/**
+	 * Deletes the rightmost character on the display properly.
+	 */
 	public void backspace()
 	{
 		String text = displayText.getText();
@@ -129,6 +147,9 @@ public class DisplayPanel extends JPanel
 		}
 	}
 
+	/**
+	 * Toggles the negative sign on the current number in the display.
+	 */
 	public void changeSign()
 	{
 		if (isAnswer)
@@ -161,6 +182,11 @@ public class DisplayPanel extends JPanel
 		}
 	}
 
+	/**
+	 * Formats the display's text and returns it.
+	 * 
+	 * @return the display's formatted text.
+	 */
 	public String getDisplayText()
 	{
 		if (displayText.getText().length() > 20)
