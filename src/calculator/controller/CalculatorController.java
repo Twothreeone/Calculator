@@ -44,4 +44,9 @@ public class CalculatorController
 	{
 		displayPanel.changeSign();
 	}
+	
+	public void refocus()
+	{
+		appFrame.requestFocus();
+	}
 }

@@ -38,6 +38,7 @@ public class CalculatorButton extends JButton
 			public void mouseClicked(MouseEvent click)
 			{
 				appController.appendText(getText());
+				appController.refocus();
 			}
 
 			public void mousePressed(MouseEvent onClick)

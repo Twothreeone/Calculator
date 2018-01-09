@@ -138,6 +138,7 @@ public class ButtonPanel extends JPanel
 			public void mouseClicked(MouseEvent click)
 			{
 				appController.calculate();
+				appController.refocus();
 			}
 
 			public void mousePressed(MouseEvent onClick)
@@ -165,6 +166,7 @@ public class ButtonPanel extends JPanel
 			public void mouseClicked(MouseEvent click)
 			{
 				appController.clearText();
+				appController.refocus();
 			}
 
 			public void mousePressed(MouseEvent onClick)
@@ -192,6 +194,7 @@ public class ButtonPanel extends JPanel
 			public void mouseClicked(MouseEvent click)
 			{
 				appController.backspace();
+				appController.refocus();
 			}
 
 			public void mousePressed(MouseEvent onClick)
@@ -219,6 +222,7 @@ public class ButtonPanel extends JPanel
 			public void mouseClicked(MouseEvent click)
 			{
 				appController.changeSign();
+				appController.refocus();
 			}
 
 			public void mousePressed(MouseEvent onClick)
