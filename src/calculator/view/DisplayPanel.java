@@ -74,7 +74,10 @@ public class DisplayPanel extends JPanel
 	{
 		if (isAnswer)
 		{
-			displayText.setText(startText);
+			if (!operators.contains(text))
+			{
+				displayText.setText(startText);
+			}
 			isAnswer = false;
 		}
 		if (operators.contains(text))
