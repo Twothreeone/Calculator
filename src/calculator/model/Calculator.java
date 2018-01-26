@@ -118,6 +118,9 @@ public class Calculator
 			{
 				terms.set(i, answer);
 			}
+		}
+		for (int i = 0; i < terms.size(); i++)
+		{
 			if (terms.get(i).equals("x"))
 			{
 				terms.set(i - 1, Double.parseDouble(terms.get(i - 1)) * Double.parseDouble(terms.get(i + 1)) + "");
